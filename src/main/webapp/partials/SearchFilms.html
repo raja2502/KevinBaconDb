@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/main.js"></script>
+<title>Search Films</title>
+<style type="text/css">
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+	cursor:pointer;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #e5e237;
+    color: white;
+}
+.sort-icon {
+    font-size: 9px;
+    margin-left: 5px;
+}
+
+</style>
+</head>
+<body>
+<pre>
+
+
+</pre>
+<div data-ng-controller="SearchCtrl">
+<form>
+ Enter the Movie ID:<br>
+  <input type="text" name="MovieId" data-ng-model="MovId"><br>
+  <input type="button" data-ng-click="getFilmID(MovId);showDiv = ! showDiv"  value="Search by ID">
+</form>
+	<div data-ng-show="showDiv" id="navcontainer">
+		<table id="Customers">
+			<tr >
+	    		<th>Title</th>
+	    		<th>Language</th>
+			    <th>Duration</th>
+			    <th>Rating</th>
+			    <th>Director</th>
+	  		</tr>
+			<tr data-ng-repeat="x in Film|orderBy:sortKey:reverse">
+				<td>{{x.title}}</td>
+				<td>{{x.language}}</td>
+				<td>{{x.duration}}</td>
+				<td>{{x.rating}}</td>
+				<td>{{x.director_Name}}</td>
+	  		</tr>
+		</table>
+	</div>
+<form>
+ Enter the Movie Title:<br>
+  <input type="text" name="title" data-ng-model="title"><br>
+  <input type="button" data-ng-click="getFilmTitle(title);showDiv1 = ! showDiv1"  value="Search by Title">
+ </form>
+	<div data-ng-show="showDiv1" id="navcontainer">
+		<table id="Customers">
+			<tr >
+	    		<th>Title</th>
+	    		<th>Language</th>
+			    <th>Duration</th>
+			    <th>Rating</th>
+			    <th>Director</th>
+	  		</tr>
+			<tr data-ng-repeat="x in Film1 ">
+				<td>{{x.title}}</td>
+				<td>{{x.language}}</td>
+				<td>{{x.duration}}</td>
+				<td>{{x.rating}}</td>
+				<td>{{x.director_Name}}</td>
+	  		</tr>
+		</table>
+	</div>
+</div>
+</body>
+</html>

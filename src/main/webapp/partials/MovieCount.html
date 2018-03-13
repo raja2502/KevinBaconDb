@@ -1,0 +1,24 @@
+<html>
+  <head>
+	<title>Movie Count</title>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <pre>
+    
+    </pre>
+    <div data-ng-controller="ActorCtrl">
+	<div id="navcontainer">
+	 	 	 <font size="4">Actors:</font>
+	 	 	 <select id="first-choice" data-ng-model="actors.repeatSelect">
+	         	<option value="" disabled selected>Select your option</option>
+	         	<option data-ng-repeat="a in actors" value="{{a.fname}}"  data-ng-click="seturl(a.fname,a.lname)">{{a.fname}} {{a.lname}}</option>
+	         </select>
+	    <br/>
+	    <br/>
+    </div>
+    </div>
+    <div id="chart_div"></div>
+  </body>
+</html>
